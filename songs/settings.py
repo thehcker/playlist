@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'music',
+    'accounts',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,8 @@ if DEBUG:
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static", "static"),
     )
+
+
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/music/'
+LOGOUT_REDIRECT_URL = '/accounts/login/'

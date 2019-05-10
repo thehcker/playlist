@@ -11,6 +11,10 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+{% block stylesheet %}
+
+{% endblock %}
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -25,16 +29,17 @@
 			<a class="navbar-brand" href="{% url 'index' %}">Vibber</a>
 			
 		</div>
+		{% if request.user.is_authenticated %}
 		<!-- Items -->
 		<div class="collapse navbar-collapse" id="topNavBar">
 		<ul class="nav navbar-nav">
 			<li class="active">
-				<a href="#">
+				<a href="{% url 'index' %}">
 					<span class="glyphicon glyphicon-cd" arial-hidden="true"></span>&nbsp; Albums
 				</a>
 			</li>
 			<li class="">
-				<a href="#">
+				<a href="{% url 'songs' 'all' %}">
 					<span class="glyphicon glyphicon-music" arial-hidden="true"></span>&nbsp; Songs
 				</a>
 			</li>
@@ -53,11 +58,26 @@
 				</a>
 			</li>
 			<li class="">
-				<a href="#">
+				<a href="{% url 'logout' %}">
 					<span class="glyphicon glyphicon-off" arial-hidden="true"></span>&nbsp; Logout
 				</a>
 			</li>
 		</ul>
+		{% else %}
+		<ul class="nav navbar-nav navbar-right">
+			<li class="">
+				<a href="{% url 'signup' %}">
+					<span class="glyphicon glyphicon-on" arial-hidden="true"></span>&nbsp; Signup
+				</a>
+			</li>
+			<li class="">
+				<a href="{% url 'login' %}">
+					<span class="glyphicon glyphicon-on" arial-hidden="true"></span>&nbsp; Login
+				</a>
+			</li>
+		</ul>
+		{% endif %}
+
 
 		</div>
 		
