@@ -132,5 +132,5 @@ STATICFILES_DIRS = (
 
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/music/'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
